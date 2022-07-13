@@ -44,6 +44,7 @@ console.log(instanceEl)
     if (!imageEl.dataset.source) {
         return;
   }  
+  
 // ========== 3. Exit with press Esc ========== 
   window.addEventListener('keydown', onEscClick)
 
