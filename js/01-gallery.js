@@ -19,7 +19,7 @@ const galleryRef = (items) =>
 </div>`).join(' ');    
 
 const addGalleryItems = galleryRef(galleryItems);
-console.log(addGalleryItems);
+// console.log(addGalleryItems);
 
 gallery.insertAdjacentHTML('afterbegin', addGalleryItems);
 
@@ -28,3 +28,24 @@ gallery.insertAdjacentHTML('afterbegin', addGalleryItems);
 
 // ========== 2. Реалізація делегування на div.gallery ==========
 
+
+const clickImg = (event) => {
+    event.preventDefault();
+   const {target: imageEl} = event
+
+    const instance = basicLightbox.create(`
+    <img src='${imageEl.dataset.source}' alt='${imageEl.alt}'>
+`)
+instance.show()
+
+    if (!imageEl.dataset.source) {
+        return;
+    }   
+}
+
+gallery.addEventListener('click', clickImg);
+
+// ==============================
+// ==============================
+
+// ========== 3. 
