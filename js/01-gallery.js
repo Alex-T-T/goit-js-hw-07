@@ -38,14 +38,26 @@ const clickImg = (event) => {
 `)
 instance.show()
 
+  const instanceEl = document.querySelector('.basicLightbox')
+console.log(instanceEl)
+  
     if (!imageEl.dataset.source) {
         return;
-    }   
+  }  
+// ========== 3. Exit with press Esc ========== 
+  window.addEventListener('keydown', onEscClick)
+
+function onEscClick(event) {
+  if (event.code === 'Escape') {
+    window.removeEventListener('keydown', onEscClick);
+    instance.close();
+  }
+}
 }
 
 gallery.addEventListener('click', clickImg);
 
-// ==============================
-// ==============================
 
-// ========== 3. 
+
+
+
